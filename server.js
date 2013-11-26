@@ -1,4 +1,4 @@
-var appPort = 8080;
+var appPort = process.env.PORT || 8080;
 var log4js = require('log4js');
 var express = require('express'), app = express();
 var http = require('http')
