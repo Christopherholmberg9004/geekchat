@@ -1,0 +1,50 @@
+doctype 5
+html
+	head
+		title g33kChat
+		link(rel="stylesheet", href="style.css")
+		script(src='http://code.jquery.com/jquery-1.7.1.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js')
+		script(src="/socket.io/socket.io.js")
+		script(src="script.js")
+	body
+		div.container#main
+			div.navbar.navbar-fixed-top
+				div.navbar-inner
+					div.container
+						a.brand(href="#") g33kchat : Node.js + Socket.io
+			div#chatEntries
+			div.row#entries
+				input(type='text')#messageInput
+				div.btn-group
+					button.btn#submit(data-loading-text="Skicka") Skicka
+					button.btn.dropdown-toggle(data-toggle="dropdown")
+						span.caret
+					ul.dropdown-menu
+						li
+							a#edit(href="#modalPseudo", data-toggle="modal")
+								i.icon-user
+								| Nytt namn?
+						li
+							a#info(href="#modalInfos", data-toggle="modal")
+								i.icon-info-sign
+								| Information			
+				p Det finns 
+					span#nbUsers
+					|  user(s) online.
+	div.modal.fade#modalPseudo
+		div.modal-header
+			h3 Skapa ett namn
+		div.modal-body
+			p Skapa ett namn :
+			input(type='text')#pseudoInput
+			div.alert.alert-error#alertPseudo
+				| Namnet upptaget ! Testa med ett annat.
+		div.modal-footer
+			button.btn.btn-primary#pseudoSubmit Starta g33kchat
+	div.modal.fade#modalInfos
+		div.modal-header
+			h3 Information
+		div.modal-body
+			p 	En riktigt cool chat. 
+				
